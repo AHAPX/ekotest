@@ -11,6 +11,8 @@ const map = {
 
 test('getCost returns cost of route', () => {
   expect(getCost(map, ['E', 'A', 'C', 'F', 'D'])).toBe(2 + 4 + 2 + 1);
+  expect(getCost(map, ['E'])).toBeNull();
+  expect(getCost(map, ['E', 'A', 'E'])).toBeNull();
 });
 
 test('getCountRoutes returns count of routes between 2 cities', () => {

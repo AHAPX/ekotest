@@ -38,14 +38,27 @@ class ManualRoute extends React.Component {
       const lastCity = this.props && this.props.value[this.state.route[this.state.route.length - 1]];
       const disabled = lastCity && !(item in lastCity);
       return (
-        <Button key={item} onClick={() => { this.setPoint(item); }} disabled={disabled}>
+        <Button
+          id={'btnManual'.concat(item)}
+          key={item}
+          onClick={() => { this.setPoint(item); }}
+          disabled={disabled}
+        >
           {item}
         </Button>
       );
     });
     let deleteBtn;
     if (this.state.route && this.state.route.length) {
-      deleteBtn = <Button bsStyle="warning" onClick={this.deleteLast}>X</Button>;
+      deleteBtn = (
+        <Button
+          id="btnRemoveLast"
+          bsStyle="warning"
+          onClick={this.deleteLast}
+        >
+          X
+        </Button>
+      );
     }
     return (
       <Row>

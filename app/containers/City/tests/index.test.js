@@ -37,9 +37,12 @@ describe('Cities changes cities settings', () => {
     btnAddCity.simulate('click');
     global.prompt = () => 5;
     component.find('#btnSetCostAB').simulate('click');
+    expect(component.state().cities.A.B).toBe(5);
     global.prompt = () => 3;
     component.find('#btnSetCostBA').simulate('click');
-    expect(component.state().cities.A.B).toBe(5);
     expect(component.state().cities.B.A).toBe(3);
+    global.prompt = () => 'a';
+    component.find('#btnSetCostBA').simulate('click');
+    expect(component.state().cities.B.A).toBeUndefined();
   });
 });

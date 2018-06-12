@@ -17,12 +17,25 @@ test('calculate Routes', () => {
   );
   const inputOrigin = component.find('#origin');
   const inputDest = component.find('#dest');
-//  const inputMaxStops = component.find('#maxStops');
+  const inputMaxStops = component.find('#maxStops');
   const fakeEvent = { preventDefault: () => {} };
   const form = component.find('#calcForm');
-  inputOrigin.simulate('change', { target: { value: 'E' } });
-  inputDest.simulate('change', { target: { value: 'D' } });
+
+  inputOrigin.simulate('change', { value: 'E' });
+  inputDest.simulate('change', { value: 'D' });
   form.simulate('submit', fakeEvent);
   expect(component.state().best.cost).toBe(9);
-  expect(component.state().best.route).toBe(['EA', 'AC', 'CF', 'FD']);
+  expect(component.state().countRoutes).toBe(6);
+
+// set max stop to get another countRoutes
+  inputMaxStops.simulate('change', { target: { value: 4 } });
+  form.simulate('submit', fakeEvent);
+  expect(component.state().best.cost).toBe(9);
+  expect(component.state().countRoutes).toBe(4);
+
+// route not found
+  inputMaxStops.simulate('change', { target: { value: 1 } });
+  form.simulate('submit', fakeEvent);
+  expect(component.state().best.cost).toBe('-');
+  expect(component.state().countRoutes).toBe(0);
 });

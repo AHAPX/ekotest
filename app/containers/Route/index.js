@@ -44,12 +44,12 @@ class Routes extends React.Component {
     return result;
   }
 
-  handleOrigin(value) {
-    this.setState({ origin: value });
+  handleOrigin(e) {
+    this.setState({ origin: e && e.value });
   }
 
-  handleDest(value) {
-    this.setState({ dest: value });
+  handleDest(e) {
+    this.setState({ dest: e && e.value });
   }
 
   handleMaxPoints(event) {
@@ -65,8 +65,8 @@ class Routes extends React.Component {
   }
 
   calcRoutes() {
-    const origin = this.state.origin && this.state.origin.value;
-    const dest = this.state.dest && this.state.dest.value;
+    const origin = this.state.origin;
+    const dest = this.state.dest;
     const maxStops = this.state.maxStops;
     const map = this.props.value;
     if (origin in map && dest in map) {

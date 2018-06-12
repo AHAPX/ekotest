@@ -17,9 +17,6 @@ const getCost = (map, route) => {
 };
 
 const getCountRoutes = (map, start, end, stops = 0, routesUsed = []) => {
-  if (routesUsed.indexOf(start + end) > -1) {
-    return 0;
-  }
   let result = 0;
   if ((map[start] || {})[end]) {
     result += 1;

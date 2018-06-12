@@ -100,7 +100,11 @@ class Cities extends React.Component {
         const cost = this.state.cities[key1][key2];
         if (key1 !== key2) {
           value = (
-            <Button id={'btnSetCost'.concat(key1).concat(key2)} bsClass="link" onClick={() => { this.setCost(key1, key2, cost); }}>
+            <Button
+              id={'btnSetCost'.concat(key1).concat(key2)}
+              bsClass="link"
+              onClick={() => { this.setCost(key1, key2, cost); }}
+            >
               {cost || '...'}
             </Button>
           );
@@ -110,7 +114,13 @@ class Cities extends React.Component {
       return (
         <tr key={key1}>
           <th>
-            <Button id={'btnRemove'.concat(key1)} bsStyle="danger" onClick={() => { this.removeCity(key1); }}>X</Button>
+            <Button
+              id={'btnRemove'.concat(key1)}
+              bsStyle="danger"
+              onClick={() => { this.removeCity(key1); }}
+            >
+              X
+            </Button>
           </th>
           <th className="City-head">{key1}</th>
           {line}
