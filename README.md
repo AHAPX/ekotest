@@ -4,6 +4,8 @@
 Simple ReactJS application lets user to set connections between cities and calculated routes between.
 
 ## Installation
+Install [NodeJS and npm](https://www.npmjs.com/get-npm)
+
 ```bash
 $ git clone https://github.com/AHAPX/ekotest.git
 $ cd ekotest
@@ -13,6 +15,7 @@ $ npm install
 ## Usage
 ```bash
 $ cd ekotest
+$ npm run build:dll
 $ npm start
 ```
 open https://localhost:3000
