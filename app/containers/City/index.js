@@ -43,7 +43,7 @@ class Cities extends React.Component {
   }
 
   setCost(name1, name2, cost) {
-    const newCost = parseInt(prompt('Type cost from {name1} to {name2}', cost), 10);
+    const newCost = parseInt(prompt(`Type cost from ${name1} to ${name2}`, cost), 10);
     if (Number.isInteger(newCost)) {
       const cities = this.state.cities;
       cities[name1][name2] = newCost;
@@ -127,21 +127,27 @@ class Cities extends React.Component {
         </tr>
       );
     });
+    let cityTable;
+    if (header.length > 0) {
+      cityTable = (
+        <table className="City-list">
+          <thead>
+            <tr>
+              <th></th>
+              <th>→</th>
+              {header}
+            </tr>
+          </thead>
+          <tbody>{body}</tbody>
+        </table>
+      );
+    }
     return (
       <Row className="text-center">
         <Col md={6}>
           <Button bsStyle="primary" id="btnAddCity" onClick={this.addCity}>Add city</Button>
           <p id="errorMsg" className="error">{this.state.errorMessage}</p>
-          <table className="City-list">
-            <thead>
-              <tr>
-                <th></th>
-                <th>→</th>
-                {header}
-              </tr>
-            </thead>
-            <tbody>{body}</tbody>
-          </table>
+          {cityTable}
         </Col>
         <Col md={6}>
           <Routes value={this.state.cities} />
