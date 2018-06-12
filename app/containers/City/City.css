@@ -1,0 +1,41 @@
+/*
+.container {
+  width: 100%;
+  text-align: center;
+}
+*/
+
+table th, table td {
+  text-align: center;
+}
+
+.City-list {
+  margin: auto;
+  width: 50% !important;
+}
+
+.City-head {
+  border: 1px solid #7db7e8;
+  min-width: 50px;
+}
+
+.City-cost {
+  border: 1px solid #7db7e8;
+  text-align: center;
+}
+
+.City-cost > a{
+  color: black;
+}
+
+.error {
+  color: red;
+}
+
+.Routes {
+  text-align: center;
+}
+
+.Routes-title {
+  text-align: right;
+}
